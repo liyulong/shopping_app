@@ -1,0 +1,36 @@
+<h1>所有商品</h1>
+<font color ="red"><%= flash[:empty]  %></font>
+<font color ="red"><%= flash[:notice]  %></font>
+<table>
+  <tr>
+    <th>商品名</th>
+    <th>商品价格</th>
+    <th>商品库存数</th>
+    <th>供应商</th>
+    <th>邮费</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @commodities.each do |commodity| %>
+    <tr>
+      <td><%= commodity.name %></td>
+      <td><%= commodity.price %></td>
+      <td><%= commodity.amount %></td>
+   
+      <td><%= commodity.supplier.name %></td>
+      <td><%= commodity.supplier.postage %></td>
+      <td><%= link_to '查看商品', commodity %></td>
+      <td><%= link_to '编辑商品信息', edit_commodity_path(commodity) %></td>
+      <td><%= link_to '删除商品', "/commodities/#{commodity.id}/dest", :confirm => '确定删除么?' %></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+      <td><%= link_to '放入购物车',{:action =>"add_to_cart",:id => commodity} %></td>
+    </tr>
+  <% end %>
+
+</table>
+<br />
+<%= link_to '添加新商品', new_commodity_path %>
+<%= link_to "查看购物车", :action => :cart %>
+<%= button_to "清空购物车", :action => :empty_cart %>

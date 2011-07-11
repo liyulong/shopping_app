@@ -1,0 +1,24 @@
+ <table>
+  <tr>
+    <th>商品名</th>
+    <th>商品价格</th>
+    <th>购买数量</th>
+    <th>供应商</th>
+    <th>邮费</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+ <% @packages.each do |package| %>
+<tr>
+      <td><%= package.name %></td>
+      <td><%= package.price %></td>
+      <td><%=  %></td>
+      <td><%=  %></td>
+</tr>
+<%end%>
+
+
+
+ </table>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  package_id: 1
+  commodity_id: 1
+  amount: 1
+  order_price: 
+
+two:
+  package_id: 1
+  commodity_id: 1
+  amount: 1
+  order_price: 

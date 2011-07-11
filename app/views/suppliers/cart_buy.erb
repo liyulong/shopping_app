@@ -1,0 +1,12 @@
+<% @packages.each do |package| %>
+  <tr>
+  <p>包裹名<%= package.name%></p><p>邮费<%= Supplier.find(package.supplier_id).postage %></p>
+  <% package.orders.each do |order| %>
+    <p>订单<%= order.id %></p>
+    <p>商品名称 <%= Commodity.find(order.commodity_id).name %></p>
+    <p>购买数量 <%= order.amount %></p>
+    <p>总价 <%= order.order_price %></p>
+    <p>供应商<%= Supplier.find(order.supplier_id).name %></p>
+  <%end%>
+  </tr>
+<%end%>
